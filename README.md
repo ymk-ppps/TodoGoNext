@@ -58,15 +58,20 @@ todogonext/
 │   │           └── router.go
 │   │
 │   ├── config/               # 環境変数などの設定
+│   ├── Dockerfile
+│   ├── .air.toml
 │   ├── go.mod
 │   └── go.sum
 ├── frontend/                 # Next.js アプリ
+│   ├── package.json
+│   ├── Dockerfile
 │   ├── app/                  # App Routerルート
 │   ├── components/           # 再利用コンポーネント
 │   ├── lib/                  # フロント側のロジックやAPI通信
 │   ├── styles/               # CSSやTailwindの設定
 │   └── types/                # 型定義（APIレスポンスなど）
 │
+├── docker-compose.yaml 
 ├── .env                      # 環境変数
 ├── LICENSE
 └── README.md
@@ -82,14 +87,21 @@ git clone https://github.com/your-username/todogonext.git
 cd todogonext
 ```
 
-### 2. フロントエンドの起動
+### 2. Docker上で起動
+```bash
+docker compose up
+```
+※事前にDocker Desktopをインストールしていること
+
+### 以下はDockerを使用する場合不要
+### 3. フロントエンドの起動
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### 3. バックエンドの起動
+### 4. バックエンドの起動
 ```bash
 cd backend
 go run main.go
